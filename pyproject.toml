@@ -9,6 +9,7 @@ authors = [
 requires-python = ">=3.14"
 dependencies = [
     "fg-data-profiling>=4.20.0",
+    "ipykernel>=7.4.0",
     "matplotlib>=3.11.2",
     "numpy>=2.5.3",
     "pandas>=2.3.3",
@@ -17,8 +18,18 @@ dependencies = [
 ]
 
 [project.scripts]
-brief-3-cardprofiler = "brief_3_cardprofiler:main"
+brief-3-cardprofiler = "src:main"
 
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]
 build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "src"
+module-root = ""
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "pip>=26.2.1",
+]
